@@ -34,5 +34,5 @@ class ADPProjectProcessor(SQLDBRowProcessor[ADPProject]):
         select ?, ? ,?, ? where not exists 
         (select * from dbo.ProjectList where department=? and client=? and project=? and SubProject=?)
         """
-        self.cursor.execute(sql, obj.department, obj.client, obj.project, obj.sub_project, obj.department, obj.client, obj.project, obj.sub_project)
+        self.cursor.execute(sql, (obj.department, obj.client, obj.project, obj.sub_project, obj.department, obj.client, obj.project, obj.sub_project))
 
